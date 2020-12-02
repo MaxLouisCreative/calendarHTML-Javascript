@@ -1,0 +1,44 @@
+.grupa-container{
+	padding: 5% 5% 5% 5%;
+}
+
+table#calendar td{
+	height: 100px;
+}
+
+table#calendar td:hover p{
+	bottom: 10px;
+}
+
+.grupa-buttons .col-sm-2{
+	margin: 10px 20px;
+}
+
+.grupa-buttons i{
+	margin-left
+}
+
+.grupa-today{
+	background: #007BFF;
+	color: white;
+}
+
+.grupa-header{
+	font-family: 'Source Sans Pro';
+	font-weight: 200;
+	font-size: 4em;
+}
+
+.grupa-days th{
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+}
+
+.grupa-days td{
+	font-family: 'Source Sans Pro';
+	font-weight: 500;
+}
+
+.grupa-select .col-sm-4{
+	margin: 0;
+}
