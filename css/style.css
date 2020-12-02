@@ -11,11 +11,23 @@ table#calendar td:hover p{
 }
 
 .grupa-buttons .col-sm-2{
-	margin: 10px 20px;
+	margin: 23px 20px;
+}
+
+.grupa-buttons button#next i{
+	margin-left: 20px;
+}
+
+.grupa-buttons button#previous i{
+	margin-right: 20px;
 }
 
 .grupa-buttons i{
-	margin-left
+	font-size: 12px;
+	position: relative;
+	bottom: 1px;
+	display: inline;
+	height: 70px;
 }
 
 .grupa-today{
@@ -27,6 +39,7 @@ table#calendar td:hover p{
 	font-family: 'Source Sans Pro';
 	font-weight: 200;
 	font-size: 4em;
+	float: left;
 }
 
 .grupa-days th{
@@ -39,6 +52,94 @@ table#calendar td:hover p{
 	font-weight: 500;
 }
 
-.grupa-select .col-sm-4{
+.grupa-select label{
+	float: left;
+}
+
+.grupa-select{
+	float: right;
+	display: inline-block;
+	padding: 25px;
+}
+
+#month, #year{
+	width: 30%;
+}
+
+td{
+	transition: background ease 0.6s;
+	width: 14.28%;
+}
+
+td:hover{
+	background: rgba(0,123,255,0.2);
+}
+
+.custom-today:hover{
+	background: #007BFF;
+}
+
+/*
+.select-css {
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+	color: #fff;
+	line-height: 1.3;
+	padding: .6em 1.4em .5em .8em;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
 	margin: 0;
+	border-radius: .5em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #007BFF;
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+	transition: ease 0.3s;
+}
+
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	box-shadow: 0 0 10px 3px rgba(59, 153, 252, .1);
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 10px 3px rgba(59, 153, 252, .3);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
+
+*/
+
+
+.select-css {
+	border: 0;
+	color: #007BFF;
+}
+
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	box-shadow: 0 0 10px 3px rgba(59, 153, 252, .1);
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 10px 3px rgba(59, 153, 252, .3);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
 }
