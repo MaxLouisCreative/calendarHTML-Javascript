@@ -79,8 +79,13 @@ td:hover{
 	background: #007BFF;
 }
 
-.grupa-form{
+.grupa-form input[type="submit"]{
+	padding: 7px 20px;
+	margin-left: 10px; 
+}
 
+.grupa-popup h3{
+	margin-bottom: 20px;
 }
 
 /*
