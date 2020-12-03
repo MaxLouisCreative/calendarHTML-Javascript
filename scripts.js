@@ -46,6 +46,7 @@ function showCalendar(month, year) {
     // creating all cells
     let date = 1;
     for (let i = 0; i < 6; i++) {
+
         // creates a table row
         let row = document.createElement("tr");
 
@@ -62,8 +63,17 @@ function showCalendar(month, year) {
             }
 
             else {
+                var currdate = [];
+                currdate["day"] = date;
+                currdate["month"] = month;
+                currdate["year"] = year;
+
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
+                cell.onclick = function() {
+                    console.log(currdate);
+                    openPopup(currdate);
+                };
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("grupa-today");
                 } // color today's date
@@ -71,7 +81,6 @@ function showCalendar(month, year) {
                 row.appendChild(cell);
                 date++;
             }
-
 
         }
 
