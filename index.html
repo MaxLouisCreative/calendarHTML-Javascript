@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<div class="container col-sm-10 grupa-container">
+<div class="container col-sm-10 grupa-container background-overlay">
     <div class="card">
         <div class="form-inline">
             <div class="col-sm-12 grupa-buttons align-middle">
@@ -109,7 +109,20 @@
         <br/>
         </div>
     </div>
+    <!--Modal Popups-->
+    <div class="popup-overlay active col-sm-12" align="center">
+        <div class="col-sm-3 grupa-popup">
+            <h3>Add event</h3>
+            <form action="" class="grupa-form">
+              <label for="name">Event name:</label><br>
+              <input type="text" id="name" name="fname"><br>
+              <input type="time" id="time" name="time" min="09:00" max="18:00" required>
+              <input type="submit" value="Submit">
+            </form> 
+        </div>
+    </div>
 </div>
+
 <div class="col-sm-12 mlc-footer" align="right">
     <a href="https://maxlouiscreative.com">Developed by MLC <img src="https://mlccdn.sirv.com/Email/Logo.png"></a>
 </div>
@@ -127,7 +140,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-
 
 </body>
 </html>

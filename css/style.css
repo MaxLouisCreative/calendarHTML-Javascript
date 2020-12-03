@@ -79,6 +79,10 @@ td:hover{
 	background: #007BFF;
 }
 
+.grupa-form{
+
+}
+
 /*
 .select-css {
 	display: block;
@@ -121,7 +125,7 @@ td:hover{
 
 */
 
-
+/*Dropdowns*/
 .select-css {
 	border: 0;
 	color: #007BFF;
@@ -144,6 +148,7 @@ td:hover{
 	font-weight:normal;
 }
 
+/*MLC Badge in footer*/
 .mlc-footer a{
 	color: black;
 	padding: 10px;
@@ -169,4 +174,30 @@ td:hover{
 	position: fixed;
 	bottom: 20px;
 
+}
+
+/*Popup classes*/
+.popup-overlay{
+	position: absolute;
+	top: 30%;
+}
+
+.grupa-popup{
+	box-shadow: 3px 0 30px -5px rgba(0,0,0,0.2);
+	background: white;
+	border-radius: 8px;
+	padding: 5%; 
+}
+
+.active{
+	display: visible;
+}
+
+/*Blur popup bg*/
+.background-overlay{
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px); 
 }
