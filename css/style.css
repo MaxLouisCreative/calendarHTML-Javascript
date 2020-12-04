@@ -194,7 +194,7 @@ td:hover{
 }
 
 .grupa-popup{
-	box-shadow: 3px 0 30px -5px rgba(0,0,0,0.2);
+	box-shadow: 3px 0 50px -5px rgba(0,0,0,0.1);
 	background: white;
 	border-radius: 8px;
 	padding: 3%; 
