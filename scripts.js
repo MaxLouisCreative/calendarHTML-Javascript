@@ -63,17 +63,12 @@ function showCalendar(month, year) {
             }
 
             else {
-                var currdate = [];
-                currdate["day"] = date;
-                currdate["month"] = month;
-                currdate["year"] = year;
-
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
-                cell.onclick = function() {
-                    console.log(currdate);
-                    openPopup(currdate);
-                };
+                cell.setAttribute('data-day',date);
+                cell.setAttribute('data-month',month);
+                cell.setAttribute('data-year',year);
+                cell.setAttribute('class','calendar-cell');
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("grupa-today");
                 } // color today's date
