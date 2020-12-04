@@ -13,11 +13,34 @@ function openPopup(el){
 
 };
 
-$(".grupa-today").on("click", function(){
-$(".popup, .popup-content").addClass("active");
-console.log(this);
+$("#grupa-form").submit(function(e){
+        e.preventDefault();
+        var form = $(this);
+        var action = form.attr("action");
+        var data = form.serializeArray();
+        console.log(data);
+        // $.ajax({
+        //             url: contextroot+action,
+        //             dataType: 'json',
+        //             type: 'POST',
+        //             contentType: 'application/json',
+        //             data: JSON.stringify(getFormData(data)),
+        //             success: function(data){
+        //                 console.log("DATA POSTED SUCCESSFULLY"+data);
+        //             },
+        //             error: function( jqXhr, textStatus, errorThrown ){
+        //                 console.log( errorThrown );
+        //             }
+        // });
+        closePopup();
 });
 
-$(".close, .popup").on("click", function(){
-$(".popup, .popup-content").removeClass("active");
+
+$(".popup-close").on("click", function(){
+	closePopup();
 });
+
+
+function closePopup(){
+	$(".popup-overlay").removeClass("active");
+}
