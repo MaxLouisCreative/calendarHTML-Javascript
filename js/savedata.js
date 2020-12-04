@@ -1,12 +1,18 @@
 
 let jsonObj = LoadJSONLocal();
-function createJSON() {
+function createJSON(formdata) {
 
     item = {}
-    item["Event"] = document.getElementById("Event").value;
-    item["Day"] = document.getElementById("Day").value;
-    item["Hour"] = document.getElementById("Hour").value;
-    item["Minute"] = document.getElementById("Minute").value;
+    // item["Event"] = document.getElementById("Event").value;
+    // item["Day"] = document.getElementById("Day").value;
+    // item["Hour"] = document.getElementById("Hour").value;
+    // item["Minute"] = document.getElementById("Minute").value;
+    item["Event"] = formdata[0];
+    item["Time"] = formdata[1];
+    item["Day"] = formdata[2];
+    item["Month"] = formdata[3];
+    item["Year"] = formdata[4];
+    
 
     jsonObj.push(item);
     console.log(jsonObj);
