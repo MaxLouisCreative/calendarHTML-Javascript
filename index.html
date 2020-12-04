@@ -114,13 +114,16 @@
         </div>
     </div>
     <!--Modal Popups-->
-    <div class="popup-overlay active col-sm-12" align="center">
+    <div class="popup-overlay col-sm-12" align="center">
         <div class="col-sm-3 grupa-popup">
             <i class="fa fa-times popup-close"></i>
             <h3>Add event</h3>
             <form action="" class="grupa-form">
               <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
               <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
+              <input type="hidden" name="selday" id="selDay" value="">
+              <input type="hidden" name="selmonth" id="selMonth" value="">
+              <input type="hidden" name="selyear" id="selYear" value="">
               <input type="submit" value="Submit" class="btn btn-outline-primary">
             </form> 
         </div>
