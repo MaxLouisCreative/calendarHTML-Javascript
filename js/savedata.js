@@ -1,21 +1,41 @@
 
+
+function Edate(title,time,day,month,year,key){
+    this.id=id;
+    this.title=title;
+    this.time=time;
+    this.day=day;
+    this.month=month;
+    this.Year=year;
+    this.key=key;
+    id=function newid(){
+        Idb=0;
+        if (jsonObj == []) {
+            return null;
+        }
+        for (var i = 0; i < jsonObj.length; i++) {
+            if (jsonObj[i].id > Idb) {
+                Idb=jsonObj[i].id;
+            }
+        }
+        return Idb++;
+    }
+
+}
+
 let jsonObj = LoadJSONLocal();
 function createJSON(formdata) {
-
-    item = {}
-    // item["Event"] = document.getElementById("Event").value;
-    // item["Day"] = document.getElementById("Day").value;
-    // item["Hour"] = document.getElementById("Hour").value;
-    // item["Minute"] = document.getElementById("Minute").value;
-    item["Event"] = formdata[0].value;
-    item["Time"] = formdata[1].value;
-    item["Day"] = formdata[2].value;
-    item["Month"] = formdata[3].value;
-    item["Year"] = formdata[4].value;
+    ndate=new Edate();
+ 
+    ndate.title = formdata[0].value;
+    ndate.time = formdata[1].value;
+    ndate.day = formdata[2].value;
+    ndate.month = formdata[3].value;
+    ndate.year = formdata[4].value;
     
 
-    jsonObj.push(item);
-    //console.log(jsonObj);
+    jsonObj.push(ndate);
+    console.log(jsonObj);
     saveJSONLocal(jsonObj);
 }
 
@@ -25,7 +45,7 @@ function ReadJSON(event) {
 }
 
 function deleteJSON(event) {
-    event = document.getElementById("Event").value;
+    
     let position = SearchJSON(event);
     if(position==null){
         return;
@@ -35,9 +55,9 @@ function deleteJSON(event) {
     saveJSONLocal();
 }
 
-function replace(event, day, hour, minute) {
-    event = document.getElementById("Event").value;
-    deleteJSON(event)
+function replace(event) {
+  
+    deleteJSON(event);
     createJSON();
     saveJSONLocal();
 }
@@ -48,7 +68,7 @@ function SearchJSON(event) {
         return null;
     }
     for (var i = 0; i < jsonObj.length; i++) {
-        if (jsonObj[i]["Event"] == event) {
+        if (jsonObj[i].id == event) {
             return results = i;
         }
     }
