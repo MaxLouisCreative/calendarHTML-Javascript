@@ -7,15 +7,16 @@ function createJSON(formdata) {
     // item["Day"] = document.getElementById("Day").value;
     // item["Hour"] = document.getElementById("Hour").value;
     // item["Minute"] = document.getElementById("Minute").value;
-    item["Event"] = formdata[0];
-    item["Time"] = formdata[1];
-    item["Day"] = formdata[2];
-    item["Month"] = formdata[3];
-    item["Year"] = formdata[4];
+    item["Event"] = formdata[0].value;
+    item["Time"] = formdata[1].value;
+    item["Day"] = formdata[2].value;
+    item["Month"] = formdata[3].value;
+    item["Year"] = formdata[4].value;
     
 
     jsonObj.push(item);
-    console.log(jsonObj);
+    //console.log(jsonObj);
+    saveJSONLocal(jsonObj);
 }
 
 function ReadJSON(event) {

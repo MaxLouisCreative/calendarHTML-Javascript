@@ -1,4 +1,4 @@
-//var formdata;
+var formdata;
 
 $('.calendar-cell').on('click', function(){
 	var el = $(this).data();
@@ -18,7 +18,7 @@ $("#grupa-form").submit(function(e){
         e.preventDefault();
         var form = $(this);
         var action = form.attr("action");
-        var formdata = form.serializeArray();
+        formdata = form.serializeArray();
         createJSON(formdata);
         // $.ajax({
         //             url: contextroot+action,
