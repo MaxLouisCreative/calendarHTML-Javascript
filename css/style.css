@@ -69,6 +69,7 @@ table#calendar td:hover p{
 td{
 	transition: background ease 0.6s;
 	width: 14.28%;
+	cursor: pointer;
 }
 
 td:hover{
@@ -225,6 +226,7 @@ td:hover{
 	border-radius: 2px;
 	line-height: 16px;
 	margin: 5px	;
+	cursor: pointer;
 }
 
 .grupa-event p{
@@ -233,4 +235,18 @@ td:hover{
 
 .grupa-event_date{
 	font-size: 12px;
+	display: inline;
+}
+
+.grupa-event_name{
+	display: inline;
+}
+
+.grupa-event_close{
+	color: white;
+	font-size: 12px;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	cursor: pointer;
 }
