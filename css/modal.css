@@ -1,3 +1,7 @@
+.popup-overlay {
+	visibility: hidden;
+}
+
 .popup-overlay.active{
 visibility:visible;
 }
