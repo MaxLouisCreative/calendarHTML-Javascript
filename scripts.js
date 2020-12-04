@@ -78,6 +78,10 @@ function showCalendar(month, year) {
                     cell.classList.add("grupa-today");
                 } // color today's date
                 cell.appendChild(cellText);
+
+                //add Drag and Drop
+                cell.setAttribute("ondrop", "drop(event)");
+                cell.setAttribute("ondragover", "allowDrop(event)")
                 row.appendChild(cell);
                 date++;
             }
@@ -87,4 +91,20 @@ function showCalendar(month, year) {
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
+}
+
+
+// Drag and Drop functions
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }

@@ -212,3 +212,20 @@ td:hover{
 	-ms-filter: blur(2px);
 	filter: blur(2px); 
 }
+
+.grupa-event{
+	background: #007BFF;
+	color: white;
+	padding: 5px;
+	border-radius: 2px;
+	line-height: 16px;
+	margin: 5px	;
+}
+
+.grupa-event p{
+	margin: 0;
+}
+
+.grupa-event_date{
+	font-size: 12px;
+}
