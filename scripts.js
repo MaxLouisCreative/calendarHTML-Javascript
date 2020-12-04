@@ -68,6 +68,7 @@ function showCalendar(month, year) {
                 cell.setAttribute('data-day',date);
                 cell.setAttribute('data-month',month);
                 cell.setAttribute('data-year',year);
+                cell.setAttribute('id',year+month+date);
                 cell.setAttribute('class','calendar-cell');
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("grupa-today");
