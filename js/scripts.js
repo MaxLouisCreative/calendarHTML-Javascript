@@ -114,13 +114,12 @@ function drop(ev) {
 
 function calendarCell(){
     $('.calendar-cell').each(function() {
-    var dayID = $(this).data().id;
-    var event = ReadJSON(dayID);
+        var dayID = $(this).data().id;
+        var event = ReadJSON(dayID);
 
-    if (event != undefined) {
-        var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true, 'data-title': event.title, 'data-time': event.time  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
-        eventDiv.appendTo(this);
-    }
-    
+        if (event != undefined) {
+            var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true, 'data-title': event.title, 'data-time': event.time  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
+            eventDiv.appendTo(this);
+        }
     });
 }
