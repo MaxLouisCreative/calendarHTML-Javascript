@@ -20,6 +20,9 @@
     <!-- Droppable only -->
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/droppable.js"></script>
 
+    <!-- AddEvent script -->
+    <script type="text/javascript" src="js/atc.min.js" async defer></script>
+
 
 </head>
 <body>
@@ -139,18 +142,27 @@
             <i class="fa fa-times popup-close"></i>
             <h3>Edit Event</h3>
             <form action="" class="grupa-form" id="grupa-form-edit">
-              <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
-              <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
-              <input type="hidden" name="selday" id="selDay-1" value="">
-              <input type="hidden" name="selmonth" id="selMonth-1" value="">
-              <input type="hidden" name="selyear" id="selYear-1" value="">
-              <input type="hidden" name="evID" id="evID-1" value="">
-              <input type="submit" value="Edit Event" class="btn btn-outline-primary">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
+                <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
+                <input type="hidden" name="selday" id="selDay-1" value="">
+                <input type="hidden" name="selmonth" id="selMonth-1" value="">
+                <input type="hidden" name="selyear" id="selYear-1" value="">
+                <input type="hidden" name="evID" id="evID-1" value="">
+                <input type="submit" value="Edit Event" class="btn btn-outline-primary">
             </form> 
+
+            <!-- Add reminder -->
+            <div title="Add to Calendar" class="addeventatc">
+                Add to Calendar
+                <span class="start"></span>
+                <span class="timezone"></span>
+                <span class="title"></span>
+            </div>
+
             <form action="" class="grupa-form" id="grupa-form-delete">
                 <input type="hidden" name="evID" id="evID-2" value="">
-              <input type="submit" value="Delete Event" class="btn btn-outline-secondary" align="center">
-            </form> 
+                <input type="submit" value="Delete Event" class="btn btn-outline-secondary" align="center">
+            </form>             
            
         </div>
     </div>
