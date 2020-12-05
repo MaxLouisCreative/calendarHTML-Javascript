@@ -114,13 +114,11 @@ function drop(ev) {
 
 function calendarCell(){
     $('.calendar-cell').each(function() {
-  
     var dayID = $(this).data().id;
     var event = ReadJSON(dayID);
-     //console.log(dayID);
+
     if (event != undefined) {
-        //console.log(event);
-        var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true,  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
+        var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true, 'data-title': event.title, 'data-time': event.time  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
         eventDiv.appendTo(this);
     }
     

@@ -56,10 +56,9 @@ function deleteJSON(event) {
     saveJSONLocal();
 }
 
-function replace(event) {
-  
-    deleteJSON(event);
-    createJSON();
+function replace(eventID, data) { 
+    deleteJSON(eventID);
+    createJSON(data);
     saveJSONLocal();
 }
 

@@ -142,8 +142,8 @@
             <i class="fa fa-times popup-close"></i>
             <h3>Edit Event</h3>
             <form action="" class="grupa-form" id="grupa-form-edit">
-                <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
-                <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
+                <input type="text" id="name-1" name="name" class="form-control" placeholder="Event Name" required><br>
+                <input type="time" id="time-1" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
                 <input type="hidden" name="selday" id="selDay-1" value="">
                 <input type="hidden" name="selmonth" id="selMonth-1" value="">
                 <input type="hidden" name="selyear" id="selYear-1" value="">
@@ -197,11 +197,11 @@
             $( document ).ready(function() {
                
                 calendarCell();
-
                 $(".grupa-event").on("click", function(e){
                     var el = $(this).parent().data();
-                    console.log(el.day);
-                    openEdit(el);
+                    var el2 = $(this).data();
+                    
+                    openEdit(el, el2);
                 });
                 
             });

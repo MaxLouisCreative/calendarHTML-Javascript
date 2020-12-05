@@ -1,10 +1,8 @@
-//var formdata;
 
 var timeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 $('.calendar-cell').on('click', function(){
 	var el = $(this).data();
-	//console.log($(this).data());
 	openPopup(el);
 });
 
@@ -26,7 +24,7 @@ $("#grupa-form").submit(function(e){
         //console.log(formdata);
         createJSON(formdata);       
         closePopup();
-        calenderCell();
+        //calenderCell();
 });
 
 $("#grupa-form-delete").submit(function(e){
@@ -36,17 +34,17 @@ $("#grupa-form-delete").submit(function(e){
         //console.log(formdata[0].value);
         deleteJSON(formdata[0].value);       
         closePopup();
-        calenderCell();
+        //calenderCell();
 });
 
 $("#grupa-form-edit").submit(function(e){
         e.preventDefault();
         var form = $(this);
         var formdata = form.serializeArray();
-        console.log(formdata);
-        replace(formdata);       
+		var eventID = formdata[5].value;
+		replace(eventID,formdata);       
         closePopup();
-        calenderCell();
+        //calenderCell();
 });
 
 $(".popup-close").on("click", function(){
@@ -57,12 +55,12 @@ $(".popup-close").on("click", function(){
 function openEdit(el,el2){
         $("#editEvent").addClass("active");
         $("#name-1").val(el2.title);
-        $("#time-1").val(el2.time);
-        $("#selDay-1").val(el.day);
-        $("#selMonth-1").val(el.month);
-        $("#selYear-1").val(el.year);
-        $("#evID-1").val(el.id);
-        $("#evID-2").val(el.id);
+		$("#time-1").val(el2.time);
+		$("#selDay-1").val(el.day);
+		$("#selMonth-1").val(el.month);
+		$("#selYear-1").val(el.year);
+		$("#evID-1").val(el.id);
+		$("#evID-2").val(el.id);
         $(".title").append(el2.title);
         $(".start").append(el2.time);
         $(".timezone").append(timeZone);
