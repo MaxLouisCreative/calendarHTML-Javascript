@@ -7,7 +7,8 @@ $('.calendar-cell').on('click', function(){
 })
 
 function openPopup(el){
-	$(".popup-overlay").addClass("active");
+	// $(".popup-overlay").addClass("active");
+	$("#addEvent").addClass("active");
 	$("#selDay").val(el.day);
 	$("#selMonth").val(el.month);
 	$("#selYear").val(el.year);
