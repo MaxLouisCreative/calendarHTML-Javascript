@@ -1,7 +1,7 @@
 //var formdata;
 
 $('.calendar-cell').on('click', function(){
-	var el = $(this).data();
+	var el = $(this).parent().data();
 	//console.log($(this).data());
 	openPopup(el);
 })
@@ -21,15 +21,29 @@ $("#grupa-form").submit(function(e){
         var form = $(this);
         var action = form.attr("action");
         var formdata = form.serializeArray();
-        createJSON(formdata);
-        
+        createJSON(formdata);       
         closePopup();
+        location.reload();
 });
 
 $(".popup-close").on("click", function(){
 	closePopup();
 });
 
+$(".grupa-event").on("click", function(e){
+	var el = $(this).data();
+	openEdit(el);
+});
+
+function openEdit(el){
+
+	$("#editEvent").addClass("active");
+	$("#selDay").val(el.day);
+	$("#selMonth").val(el.month);
+	$("#selYear").val(el.year);
+	$("#evID").val(el.id);
+
+};
 
 function closePopup(){
 	$(".popup-overlay").removeClass("active");
