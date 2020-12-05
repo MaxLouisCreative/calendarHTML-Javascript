@@ -20,6 +20,7 @@
     <!-- Droppable only -->
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/droppable.js"></script>
 
+
 </head>
 <body>
 <div class="container col-sm-10 grupa-container">
@@ -189,6 +190,23 @@
         crossorigin="anonymous"></script>
 <script src="js/modal.js"></script>
 <script src="js/savedata.js"></script>
+ <script type="text/javascript">
+            $( document ).ready(function() {
+               
+                $('.calendar-cell').each(function() {
+                    console.log($(this).data().id);
+                    var dayID = $(this).data().id;
+                    var event = ReadJSON(dayID);
+                    console.log(event);
+                    
+                });
+            });
+        
+
+        // for each
+
+    </script>
+
 
 </body>
 </html>

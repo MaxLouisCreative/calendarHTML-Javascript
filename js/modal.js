@@ -2,7 +2,7 @@
 
 $('.calendar-cell').on('click', function(){
 	var el = $(this).data();
-	console.log($(this).data());
+	//console.log($(this).data());
 	openPopup(el);
 })
 
@@ -22,22 +22,9 @@ $("#grupa-form").submit(function(e){
         var action = form.attr("action");
         var formdata = form.serializeArray();
         createJSON(formdata);
-        // $.ajax({
-        //             url: contextroot+action,
-        //             dataType: 'json',
-        //             type: 'POST',
-        //             contentType: 'application/json',
-        //             data: JSON.stringify(getFormData(data)),
-        //             success: function(data){
-        //                 console.log("DATA POSTED SUCCESSFULLY"+data);
-        //             },
-        //             error: function( jqXhr, textStatus, errorThrown ){
-        //                 console.log( errorThrown );
-        //             }
-        // });
+        
         closePopup();
 });
-
 
 $(".popup-close").on("click", function(){
 	closePopup();
@@ -47,3 +34,4 @@ $(".popup-close").on("click", function(){
 function closePopup(){
 	$(".popup-overlay").removeClass("active");
 }
+

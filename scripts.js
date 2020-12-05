@@ -89,6 +89,11 @@ function showCalendar(month, year) {
 
 }
 
+function getEvent(dayID){
+    var events = ReadJSON(dayID);
+    console.log(events);
+}
+
 
 // Drag and Drop functions
 function allowDrop(ev) {

@@ -36,7 +36,7 @@ function createJSON(formdata) {
     ndate.id = formdata[5].value;
 
     jsonObj.push(ndate);
-    console.log(jsonObj);
+    //console.log(jsonObj);
     saveJSONLocal(jsonObj);
 }
 
@@ -52,7 +52,7 @@ function deleteJSON(event) {
         return;
     }
     jsonObj.splice(position, 1);
-    console.log(jsonObj);
+    //console.log(jsonObj);
     saveJSONLocal();
 }
 
@@ -64,7 +64,7 @@ function replace(event) {
 }
 
 function SearchJSON(event) {
-    console.log(jsonObj);
+    //console.log(jsonObj);
     if (jsonObj == []) {
         return null;
     }
