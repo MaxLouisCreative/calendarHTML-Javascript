@@ -15,12 +15,14 @@ function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
+    calendarCell();
 }
 
 function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
+    calendarCell();
 }
 
 function jump() {
@@ -110,3 +112,19 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
+
+function calendarCell(){
+    $('.calendar-cell').each(function() {
+  
+    var dayID = $(this).data().id;
+    var event = ReadJSON(dayID);
+     //console.log(dayID);
+    if (event != undefined) {
+        //console.log(event);
+        var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true,  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
+        eventDiv.appendTo(this);
+    }
+    
+    });
+}
+                
