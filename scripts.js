@@ -69,6 +69,7 @@ function showCalendar(month, year) {
                 cell.setAttribute('data-month',month);
                 cell.setAttribute('data-year',year);
                 cell.setAttribute('class','calendar-cell');
+                cell.setAttribute('data-id',year+'-'+month+'-'+date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("grupa-today");
                 } // color today's date

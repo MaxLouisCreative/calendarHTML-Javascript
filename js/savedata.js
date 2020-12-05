@@ -1,14 +1,15 @@
 
 
 function Edate(title,time,day,month,year,key){
-    this.id=id;
+    //this.id=id;
     this.title=title;
     this.time=time;
     this.day=day;
     this.month=month;
     this.Year=year;
+
     this.key=key;
-    id=function newid(){
+    this.id=function newid(){
         Idb=0;
         if (jsonObj == []) {
             return null;
@@ -21,7 +22,6 @@ function Edate(title,time,day,month,year,key){
         return Idb++;
         
     }
-
 }
 
 let jsonObj = LoadJSONLocal();
@@ -33,7 +33,7 @@ function createJSON(formdata) {
     ndate.day = formdata[2].value;
     ndate.month = formdata[3].value;
     ndate.year = formdata[4].value;
-    
+    ndate.id = formdata[5].value;
 
     jsonObj.push(ndate);
     console.log(jsonObj);

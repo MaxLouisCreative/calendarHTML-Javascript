@@ -12,6 +12,7 @@ function openPopup(el){
 	$("#selDay").val(el.day);
 	$("#selMonth").val(el.month);
 	$("#selYear").val(el.year);
+	$("#evID").val(el.id);
 
 };
 
