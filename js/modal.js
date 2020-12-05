@@ -1,10 +1,10 @@
 
 var timeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-$('.calendar-cell').on('click', function(){
-	var el = $(this).data();
-	openPopup(el);
-});
+// $('.calendar-cell').on('click', function(){
+// 	var el = $(this).data();
+// 	openPopup(el);
+// });
 
 function openPopup(el){
 	// $(".popup-overlay").addClass("active");

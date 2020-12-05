@@ -93,7 +93,7 @@ function showCalendar(month, year) {
 
 function getEvent(dayID){
     var events = ReadJSON(dayID);
-    console.log(events);
+    //console.log(events);
 }
 
 
@@ -127,5 +127,14 @@ function calendarCell(){
             var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true, 'data-title': event.title, 'data-time': event.time  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
             eventDiv.appendTo(this);
         }
+    });
+    $('.calendar-cell').on('click', function(){
+        var el = $(this).data();
+        openPopup(el);
+    });
+    $(".grupa-event").on("click", function(e){
+        var el = $(this).parent().data();
+        var el2 = $(this).data();
+        openEdit(el, el2);
     });
 }
