@@ -189,6 +189,7 @@ td{
 	line-height: 16px;
 	cursor: pointer;
 	position: relative;
+	margin-top: 5px;
 }
 
 .grupa-event:hover:before{

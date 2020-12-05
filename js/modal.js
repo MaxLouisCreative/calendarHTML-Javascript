@@ -44,7 +44,6 @@ $("#grupa-form-edit").submit(function(e){
 		var eventID = formdata[5].value;
 		replace(eventID,formdata);       
         closePopup();
-        clearCell();
         calendarCell();
 });
 
