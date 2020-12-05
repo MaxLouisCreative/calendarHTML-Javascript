@@ -112,7 +112,13 @@ function drop(ev) {
   ev.target.appendChild(document.getElementById(data));
 }
 
+function clearCell(){
+     if ($('.grupa-event').length) {
+        $('.grupa-event').remove();
+    } 
+}
 function calendarCell(){
+    clearCell();
     $('.calendar-cell').each(function() {
     var dayID = $(this).data().id;
     var event = ReadJSON(dayID);

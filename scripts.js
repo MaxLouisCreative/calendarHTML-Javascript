@@ -113,7 +113,9 @@ function drop(ev) {
 }
 
 function calendarCell(){
+
     $('.calendar-cell').each(function() {
+
     var dayID = $(this).data().id;
     var event = ReadJSON(dayID);
 

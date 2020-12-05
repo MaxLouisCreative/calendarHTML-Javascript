@@ -24,7 +24,7 @@ $("#grupa-form").submit(function(e){
         //console.log(formdata);
         createJSON(formdata);       
         closePopup();
-        calenderCell();
+        calendarCell();
 });
 
 $("#grupa-form-delete").submit(function(e){
@@ -34,7 +34,7 @@ $("#grupa-form-delete").submit(function(e){
         //console.log(formdata[0].value);
         deleteJSON(formdata[0].value);       
         closePopup();
-        calenderCell();
+        calendarCell();
 });
 
 $("#grupa-form-edit").submit(function(e){
@@ -44,7 +44,8 @@ $("#grupa-form-edit").submit(function(e){
 		var eventID = formdata[5].value;
 		replace(eventID,formdata);       
         closePopup();
-        calenderCell();
+        clearCell();
+        calendarCell();
 });
 
 $(".popup-close").on("click", function(){
