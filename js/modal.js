@@ -1,10 +1,10 @@
 //var formdata;
 
 $('.calendar-cell').on('click', function(){
-	var el = $(this).parent().data();
+	var el = $(this).data();
 	//console.log($(this).data());
 	openPopup(el);
-})
+});
 
 function openPopup(el){
 	// $(".popup-overlay").addClass("active");
@@ -21,6 +21,7 @@ $("#grupa-form").submit(function(e){
         var form = $(this);
         var action = form.attr("action");
         var formdata = form.serializeArray();
+        console.log(formdata);
         createJSON(formdata);       
         closePopup();
         location.reload();
