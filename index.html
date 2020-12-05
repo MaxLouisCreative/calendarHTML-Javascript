@@ -22,7 +22,7 @@
 
 
 </head>
-<body class="dark-mode">
+<body>
 <div class="container col-sm-10 grupa-container">
     <div class="card">
         <div class="form-inline">
@@ -120,7 +120,7 @@
     <div id="addEvent" class="popup-overlay col-sm-12" align="center">
         <div class="col-sm-3 grupa-popup">
             <i class="fa fa-times popup-close"></i>
-            <h3>Add vent</h3>
+            <h3>Add Event</h3>
             <form action="" class="grupa-form" id="grupa-form">
               <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
               <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
@@ -170,6 +170,8 @@
         </div>
     </div>
 
+    <a class="dark-mode-button">Dark Mode</a>
+
    
 </div>
 
@@ -192,6 +194,7 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 <script src="js/modal.js"></script>
+<script src="js/darkmode.js"></script>
 <script src="js/savedata.js"></script>
  <script type="text/javascript">
             $( document ).ready(function() {
@@ -214,9 +217,6 @@
                     console.log(el.day);
                     openEdit(el);
                 });
-
-
-
                 
             });
         
