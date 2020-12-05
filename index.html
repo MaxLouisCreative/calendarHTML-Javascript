@@ -141,10 +141,10 @@
             <form action="" class="grupa-form" id="grupa-form-edit">
               <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
               <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
-              <input type="hidden" name="selday" id="selDay" value="">
-              <input type="hidden" name="selmonth" id="selMonth" value="">
-              <input type="hidden" name="selyear" id="selYear" value="">
-              <input type="hidden" name="evID" id="evID" value="">
+              <input type="hidden" name="selday" id="selDay-1" value="">
+              <input type="hidden" name="selmonth" id="selMonth-1" value="">
+              <input type="hidden" name="selyear" id="selYear-1" value="">
+              <input type="hidden" name="evID" id="evID-1" value="">
               <input type="submit" value="Edit Event" class="btn btn-outline-primary">
             </form> 
             <form action="" class="grupa-form" id="grupa-form-delete">
@@ -200,16 +200,18 @@
                   
                     var dayID = $(this).data().id;
                     var event = ReadJSON(dayID);
-                     console.log(dayID);
+                     //console.log(dayID);
                     if (event != undefined) {
-                        console.log(event);
+                        //console.log(event);
                         var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true,  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
                         eventDiv.appendTo(this);
                     }
                     
                 });
+
                 $(".grupa-event").on("click", function(e){
-                    var el = $(this).data();
+                    var el = $(this).parent().data();
+                    console.log(el.day);
                     openEdit(el);
                 });
 

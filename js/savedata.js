@@ -64,7 +64,7 @@ function replace(event) {
 }
 
 function SearchJSON(event) {
-    console.log(jsonObj);
+   // console.log(jsonObj);
     if (jsonObj == []) {
         return null;
     }
