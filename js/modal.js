@@ -26,6 +26,16 @@ $("#grupa-form").submit(function(e){
         location.reload();
 });
 
+$("#grupa-form-delete").submit(function(e){
+        e.preventDefault();
+        var form = $(this);
+        var formdata = form.serializeArray();
+        console.log(formdata[0].value);
+        deleteJSON(formdata[0].value);       
+        closePopup();
+        location.reload();
+});
+
 $(".popup-close").on("click", function(){
 	closePopup();
 });
@@ -42,6 +52,7 @@ function openEdit(el){
 	$("#selMonth").val(el.month);
 	$("#selYear").val(el.year);
 	$("#evID").val(el.id);
+	$("#evID-2").val(el.id);
 
 };
 
