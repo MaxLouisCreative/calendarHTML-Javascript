@@ -160,6 +160,10 @@ td{
 	font-weight: 300;
 }
 
+.grupa-popup i{
+	cursor: pointer;
+}
+
 .active{
 	display: visible;
 }
@@ -273,4 +277,10 @@ td{
 
 .addeventatc{
 	margin-top: 20px;
+}
+
+.btn-delete{
+	background: none;
+	border: none;
+	color: red;
 }
