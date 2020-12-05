@@ -93,7 +93,6 @@ function showCalendar(month, year) {
 
 function getEvent(dayID){
     var events = ReadJSON(dayID);
-    //console.log(events);
 }
 
 
@@ -113,7 +112,7 @@ function drop(ev) {
 }
 
 function clearCell(){
-     if ($('.grupa-event').length) {
+    if ($('.grupa-event').length) {
         $('.grupa-event').remove();
     } 
 }
