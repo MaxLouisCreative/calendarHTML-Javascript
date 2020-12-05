@@ -9,6 +9,8 @@ let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
+var darkMode = false;
+
 
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -108,4 +110,17 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
+}
+
+function darkMode(){
+	if(!darkMode){
+		darkMode = true;
+		$("body").addClass("dark-mode");
+		$(".dark-mode-button").text("Light Mode");
+	}
+	else if(darkMode){
+		darkMode = false;
+		$("body").removeClass("dark-mode");
+		$(".dark-mode-button").text("Dark Mode");
+	}
 }

@@ -139,7 +139,7 @@ td{
 .mlc-footer{
 	position: fixed;
 	bottom: 20px;
-
+	right: 20px;
 }
 
 /*Popup classes*/
@@ -249,4 +249,16 @@ td{
 	box-shadow: 0 0 0 3px -moz-mac-focusring;
 	color: #fff;
 	outline: none;
+}
+
+
+.dark-mode-button{
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+	padding: 5px;
+	background: white;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+	color: black !important;
+	cursor: pointer;
 }
