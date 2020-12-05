@@ -261,3 +261,8 @@ td{
 	color: black !important;
 	cursor: pointer;
 }
+
+.dark-mode .grupa-today{
+	background: #1E1E1E;
+	color: white;
+}
