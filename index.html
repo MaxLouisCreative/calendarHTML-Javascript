@@ -194,10 +194,15 @@
             $( document ).ready(function() {
                
                 $('.calendar-cell').each(function() {
-                    console.log($(this).data().id);
+                    //console.log($(this).data().id);
                     var dayID = $(this).data().id;
                     var event = ReadJSON(dayID);
-                    console.log(event);
+
+                    if (event != undefined) {
+                        console.log(event);
+                        var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'id': dayID, 'draggable':true,  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
+                        eventDiv.appendTo(this);
+                    }
                     
                 });
             });
