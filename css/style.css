@@ -215,3 +215,38 @@ td{
 .grupa-event_name{
 	display: inline;
 }
+
+
+
+/* Dark Mode */
+
+.dark-mode, .dark-mode tr, .dark-mode td, .dark-mode .grupa-popup, .dark-mode .card{
+	background: #121212;
+	color: white;
+}
+
+.dark-mode .grupa-event{
+	background: #1E1E1E;
+}
+
+
+.dark-mode p, .dark-mode h3, .dark-mode label{
+	color: white;
+}
+
+.dark-mode .mlc-footer a{
+	border: white 1px solid;
+	color: white;
+}
+
+.dark-mode .select-css{
+	background: #1E1E1E;
+}
+
+.dark-mode .select-css:focus {
+	border-color: none;
+	box-shadow: 0 0 10px 3px rgba(59, 153, 252, .3);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #fff;
+	outline: none;
+}
