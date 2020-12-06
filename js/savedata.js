@@ -1,13 +1,13 @@
+let jsonObj = LoadJSONLocal();
 
-
-function Edate(title,time,day,month,year,key) {
+function Edate(title,time,day,month,year,date) {
     this.title=title;
     this.time=time;
     this.day=day;
     this.month=month;
-    this.Year=year;
+    this.year=year;
+    this.date=date;
 
-    this.key=key;
     this.id=function newid(){
         Idb=0;
         if (jsonObj == []) {
@@ -18,11 +18,11 @@ function Edate(title,time,day,month,year,key) {
                 Idb=jsonObj[i].id;
             }
         }
+        console.log({Idb});
         return Idb++;
     }
 }
 
-let jsonObj = LoadJSONLocal();
 function createJSON(formdata) {
     ndate=new Edate();
 
@@ -32,9 +32,9 @@ function createJSON(formdata) {
     ndate.month = formdata[3].value;
     ndate.year = formdata[4].value;
     ndate.id = formdata[5].value;
+    ndate.date = formdata[5].value;
 
     jsonObj.push(ndate);
-    console.log(jsonObj);
     saveJSONLocal(jsonObj);
 }
 
@@ -49,7 +49,6 @@ function deleteJSON(eventId) {
         return;
     }
     jsonObj.splice(position, 1);
-    //console.log(jsonObj);
     saveJSONLocal();
 }
 
@@ -59,18 +58,21 @@ function replace(eventId, data) {
     saveJSONLocal();
 }
 
-function moveEventToDate(eventId, year, day) {
-    const srcEvent = ReadJSON(eventId);
+function moveEventToDay(eventId, day) {
+    const e = ReadJSON(eventId);
     deleteJSON(eventId);
     saveJSONLocal();
 
-    jsonObj.push(ndate);
+    e.day = day;
+    e.id = e.year+'-'+e.month+'-'+e.day;
+    e.date = e.year+'-'+e.month+'-'+e.day;
+
+    jsonObj.push(e);
     console.log(jsonObj);
     saveJSONLocal(jsonObj);
 }
 
 function SearchJSON(eventId) {
-   // console.log(jsonObj);
     if (jsonObj == []) {
         return null;
     }
@@ -80,12 +82,15 @@ function SearchJSON(eventId) {
         }
     }
 }
-function saveJSONLocal(){
+function saveJSONLocal() {
+    console.log({ events: jsonObj });
     localStorage.setItem("calendar",JSON.stringify(jsonObj) );
 }
 
-function LoadJSONLocal(){
-    return localStorage.getItem("calendar") === null
+function LoadJSONLocal() {
+    const events = localStorage.getItem("calendar") === null
         ? []
         : JSON.parse(localStorage.getItem("calendar"));
+    console.log(events);
+    return events;
 }

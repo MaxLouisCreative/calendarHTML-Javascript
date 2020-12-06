@@ -1,11 +1,6 @@
 
 var timeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-// $('.calendar-cell').on('click', function(){
-// 	var el = $(this).data();
-// 	openPopup(el);
-// });
-
 function openPopup(el){
 	// $(".popup-overlay").addClass("active");
 	$("#addEvent").addClass("active");
@@ -24,7 +19,7 @@ $("#grupa-form").submit(function(e){
         //console.log(formdata);
         createJSON(formdata);       
         closePopup();
-        calendarCell();
+        renderCalendarCells();
 });
 
 $("#grupa-form-delete").submit(function(e){
@@ -34,7 +29,7 @@ $("#grupa-form-delete").submit(function(e){
         //console.log(formdata[0].value);
         deleteJSON(formdata[0].value);       
         closePopup();
-        calendarCell();
+        renderCalendarCells();
 });
 
 $("#grupa-form-edit").submit(function(e){
@@ -44,7 +39,7 @@ $("#grupa-form-edit").submit(function(e){
 		var eventID = formdata[5].value;
 		replace(eventID,formdata);       
         closePopup();
-        calendarCell();
+        renderCalendarCells();
 });
 
 $(".popup-close").on("click", function(){

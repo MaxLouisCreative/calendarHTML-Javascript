@@ -14,14 +14,14 @@ function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
-    calendarCell();
+    renderCalendarCells();
 }
 
 function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
-    calendarCell();
+    renderCalendarCells();
 }
 
 function jump() {
@@ -78,6 +78,7 @@ function showCalendar(month, year) {
                 cell.appendChild(cellText);
 
                 //add Drag and Drop
+                cell.setAttribute("ondrag", "drag(event)");
                 cell.setAttribute("ondrop", "drop(event)");
                 cell.setAttribute("ondragover", "allowDrop(event)")
                 row.appendChild(cell);
@@ -96,30 +97,47 @@ function getEvent(dayID){
 }
 
 // Drag and Drop functions
+let dragEventId = '';
+
 function allowDrop(ev) {
   ev.preventDefault();
+}
+
+function drag(ev) {
+  dragEventId = ev.target.dataset.id;
 }
 
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  console.log({ ev, data });
-  ev.target.appendChild(document.getElementById(data));
+  console.log({ ev, data, dragEventId });
+  moveEventToDay(dragEventId, ev.target.dataset.day)
+  renderCalendarCells();
 }
 
-function clearCell(){
+function clearCell() {
     if ($('.grupa-event').length) {
         $('.grupa-event').remove();
-    } 
+    }
 }
-function calendarCell(){
+
+function renderCalendarCells() {
     clearCell();
     $('.calendar-cell').each(function() {
         var dayID = $(this).data().id;
         var event = ReadJSON(dayID);
 
         if (event != undefined) {
-            var eventDiv = $("<div></div>", { 'class': 'grupa-event', 'data-id': dayID, 'draggable':true, 'data-title': event.title, 'data-time': event.time  }).append("<p>"+event.title+"</p>").append("<p>"+event.time+"</p>");
+            var eventDiv = $("<div></div>", {
+                'class': 'grupa-event',
+                'data-id': dayID,
+                'draggable': true,
+                'data-title': event.title,
+                'data-time': event.time,
+                'id': event.id
+            })
+            .append("<p>"+event.title+"</p>")
+            .append("<p>"+event.time+"</p>");
             eventDiv.appendTo(this);
         }
     });
