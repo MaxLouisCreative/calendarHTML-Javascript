@@ -1,3 +1,6 @@
+const debugLoggingEnabled = false;
+const actionLoggingEnabled = true;
+
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
@@ -8,7 +11,6 @@ let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
-
 
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -93,24 +95,25 @@ function showCalendar(month, year) {
 }
 
 function getEvent(dayID){
-    var events = ReadJSON(dayID);
+    var events = getEventById(dayID);
 }
 
 // Drag and Drop functions
-let dragEventId = '';
+let dragEventId = -1;
 
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
 function drag(ev) {
-  dragEventId = ev.target.dataset.id;
+    dragEventId = ev.target.id;
 }
 
 function drop(ev) {
   ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  console.log({ ev, data, dragEventId });
+  if (dragEventId < -1 || !ev.target.dataset.day)
+    return;
+
   moveEventToDay(dragEventId, ev.target.dataset.day)
   renderCalendarCells();
 }
@@ -125,12 +128,13 @@ function renderCalendarCells() {
     clearCell();
     $('.calendar-cell').each(function() {
         var dayID = $(this).data().id;
-        var event = ReadJSON(dayID);
+        var events = getEventsByDate(dayID);
 
-        if (event != undefined) {
+        events.sort((e1, e2) => (e1.datetime < e2.datetime) ? -1 : (e1.datetime > e2.datetime) ? 1 : 0);
+        events.forEach(event => {
             var eventDiv = $("<div></div>", {
                 'class': 'grupa-event',
-                'data-id': dayID,
+                'data-id': event.id,
                 'draggable': true,
                 'data-title': event.title,
                 'data-time': event.time,
@@ -139,15 +143,15 @@ function renderCalendarCells() {
             .append("<p>"+event.title+"</p>")
             .append("<p>"+event.time+"</p>");
             eventDiv.appendTo(this);
-        }
+        });
     });
     $('.calendar-cell').on('click', function(){
         var el = $(this).data();
-        openPopup(el);
+        openPopup(el, $(this).id);
     });
     $(".grupa-event").on("click", function(e){
         var el = $(this).parent().data();
         var el2 = $(this).data();
-        openEdit(el, el2);
+        openEdit(el, el2, el2.id);
     });
 }

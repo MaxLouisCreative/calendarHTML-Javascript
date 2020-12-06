@@ -135,7 +135,7 @@
             <form action="" class="grupa-form" id="grupa-form">
               <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
               <label>Select a time</label><br/>
-              <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
+              <input type="time" id="time" name="time" min="00:00" max="23:59" required class="btn btn-outline-primary">
               <input type="hidden" name="selday" id="selDay" value="">
               <input type="hidden" name="selmonth" id="selMonth" value="">
               <input type="hidden" name="selyear" id="selYear" value="">
@@ -154,7 +154,7 @@
             <form action="" class="grupa-form" id="grupa-form-edit">
                 <input type="text" id="name-1" name="name" class="form-control" placeholder="Event Name" required><br>
                 <label>Select a time</label><br/>
-                <input type="time" id="time-1" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
+                <input type="time" id="time-1" name="time" min="00:00" max="23:59" required class="btn btn-outline-primary">
                 <input type="hidden" name="selday" id="selDay-1" value="">
                 <input type="hidden" name="selmonth" id="selMonth-1" value="">
                 <input type="hidden" name="selyear" id="selYear-1" value="">
@@ -170,8 +170,6 @@
                 </div>
             </form>
 
-            
-
             <form action="" class="grupa-form" id="grupa-form-delete">
                 <input type="hidden" name="evID" id="evID-2" value="">
                 <input type="submit" value="Delete Event" class="btn btn-delete" align="center">
@@ -186,7 +184,6 @@
             <span class="control"></span>
         </label>
     </div>
-    
 </div>
 
 <div class="col-sm-6 mlc-footer" align="right">
