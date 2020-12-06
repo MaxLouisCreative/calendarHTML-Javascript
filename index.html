@@ -31,7 +31,7 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 </head>
-<body class="dark-mode">
+<body>
 <div class="container col-sm-10 grupa-container">
     <div>
         <div class="row grupa-header-row">
@@ -180,7 +180,7 @@
     <div class="dark-mode-container">
     <p>Dark Mode</p>
         <label class="toggle-control">
-            <input type="checkbox" checked="checked" class="dark-mode-button">
+            <input id="dark-mode-toggle" type="checkbox" class="dark-mode-button">
             <span class="control"></span>
         </label>
     </div>
@@ -195,7 +195,7 @@
 <script src="js/modal.js"></script>
 <script src="js/darkmode.js"></script>
 <script src="js/savedata.js"></script>
-<script type="text/javascript">$(document).ready(() => renderCalendarCells());</script>
+<script type="text/javascript">$(document).ready(() => init());</script>
 
 </body>
 </html>

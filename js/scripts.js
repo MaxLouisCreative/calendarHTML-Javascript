@@ -155,3 +155,8 @@ function renderCalendarCells() {
         openEdit(el, el2, el2.id);
     });
 }
+
+function init() {
+    renderCalendarCells();
+    updateDarkModeVisuals();
+}
