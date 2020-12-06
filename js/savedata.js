@@ -1,109 +1,91 @@
 let calendarEvents = loadEvents();
 
-function getNextId() {
-    return loadEvents().reduce((current, e) => Math.max(current, e.id), 0) + 1;
+function getNextEventId() {
+  return loadEvents().reduce((current, e) => Math.max(current, e.id), 0) + 1;
 }
 
-function CalendarEvent(title,time,day,month,year,date) {
-    this.title=title;
-    this.time=time;
-    this.day=day;
-    this.month=month;
-    this.year=year;
-    this.date=date;
-    this.datetime=`${date}|${time}`;
-}
-
-function createEvent(formdata, id) {
-    e = new CalendarEvent();
-
-    e.title = formdata[0].value;
-    e.time = formdata[1].value;
-    e.day = formdata[2].value;
-    e.month = formdata[3].value;
-    e.year = formdata[4].value;
-    const date = `${e.year}-${e.month}-${e.day}`;
-    e.date = date;
-    e.datetime = date + '|' + formdata[1].value;
-    e.id = id || getNextId();
-    if (debugLoggingEnabled)
-        console.log({ nextId: e.id });
-
-    calendarEvents.push(e);
-    saveEvents(calendarEvents);
+function CalendarEvent({ title, time, day, month, year, id }) {
+  this.title = title;
+  this.time = time;
+  this.day = day;
+  this.month = month;
+  this.year = year;
+  this.date = `${year}-${month}-${day}`;
+  this.datetime = `${this.date}|${time}`;
+  this.id = id;
 }
 
 function getEventsByDate(date) {
-    return calendarEvents.filter(e => e.date === date);
+  return calendarEvents.filter(e => e.date === date);
 }
 
 function getEventById(eventId) {
-    let position = SearchJSON(eventId);
-    return calendarEvents[position];
+  const events = calendarEvents.filter(e => e.id == eventId);
+  return events.length > 0 ? events[0] : null;
 }
+
+function createEvent(formdata, id) {
+  persistAfter(() => calendarEvents.push(new CalendarEvent({
+    title: formdata[0].value,
+    time: formdata[1].value,
+    day: formdata[2].value,
+    month: formdata[3].value,
+    year: formdata[4].value,
+    id: id || getNextEventId()
+  })));
+}
+
 
 function deleteEventById(eventId, isDiscreteAction) {
-    if (actionLoggingEnabled && isDiscreteAction)
-        console.log("Delete Event Id", eventId);
+  if (actionLoggingEnabled && isDiscreteAction)
+    console.log("Delete Event Id", eventId);
 
-    calendarEvents = calendarEvents.filter(e => e.id != eventId);
-    saveEvents();
+  persistAfter(() => calendarEvents = calendarEvents.filter(e => e.id != eventId));
 }
 
-function updateEvent(eventId, data) {
-    if (actionLoggingEnabled)
-        console.log("Update Event Id", eventId);
+function updateEvent(eventId, formdata) {
+  if (actionLoggingEnabled)
+    console.log("Update Event Id", eventId);
 
-    deleteEventById(eventId);
-    createEvent(data, eventId);
-    saveEvents();
+  deleteEventById(eventId);
+  persistAfter(() => createEvent(formdata, eventId));
 }
 
 function moveEventToDay(eventId, day) {
-    if (actionLoggingEnabled)
-        console.log("Move Event Id", eventId);
+  if (actionLoggingEnabled)
+    console.log("Move Event Id", eventId);
 
-    const e = getEventById(eventId);
-    if (!e)
-        return;
+  const e = getEventById(eventId);
+  if (!e)
+    return;
 
-    deleteEventById(eventId);
-    saveEvents();
+  deleteEventById(eventId);
 
-    e.day = day;
-    e.date = e.year+'-'+e.month+'-'+e.day;
+  e.day = day;
+  e.date = e.year + '-' + e.month + '-' + day;
 
-    calendarEvents.push(e);
-    saveEvents(calendarEvents);
+  persistAfter(() => calendarEvents.push(e));
 }
 
-function SearchJSON(eventId) {
-    if (calendarEvents == []) {
-        return null;
-    }
-    for (var i = 0; i < calendarEvents.length; i++) {
-        if (calendarEvents[i].id == eventId) {
-            return results = i;
-        }
-    }
+function persistAfter(action) {
+  action();
+  saveEvents();
 }
 
 function saveEvents() {
-    if (debugLoggingEnabled)
-        console.log(calendarEvents);
-    localStorage.setItem("calendar", JSON.stringify(calendarEvents) );
+  if (debugLoggingEnabled)
+    console.log(calendarEvents);
+  localStorage.setItem("calendar", JSON.stringify(calendarEvents));
 }
 
 function loadEvents() {
-    const events = localStorage.getItem("calendar") === null
-        ? []
-        : JSON.parse(localStorage.getItem("calendar"));
-    if (debugLoggingEnabled)
-        console.log(events);
-    return events;
+  const events = localStorage.getItem("calendar") === null ? [] :
+    JSON.parse(localStorage.getItem("calendar"));
+  if (debugLoggingEnabled)
+    console.log(events);
+  return events;
 }
 
 function clearAllEvents() {
-    calendarEvents = [];
-    saveEvents();
+  persistAfter(() => calendarEvents = []);
 }
