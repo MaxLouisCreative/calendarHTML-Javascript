@@ -8,6 +8,7 @@ function openPopup(el){
 	$("#selMonth").val(el.month);
 	$("#selYear").val(el.year);
 	$("#evID").val(el.id);
+        $(".container").addClass("background-overlay");
 
 };
 
@@ -63,5 +64,6 @@ function openEdit(el,el2){
 
 function closePopup(){
 	$(".popup-overlay").removeClass("active");
+        $(".container").removeClass("background-overlay");
 }
 

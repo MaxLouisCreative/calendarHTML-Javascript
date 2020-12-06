@@ -10,8 +10,15 @@ table#calendar td:hover p{
 	bottom: 10px;
 }
 
-.grupa-buttons .col-sm-2{
-	margin: 23px 20px;
+.grupa-buttons{
+	text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.grupa-buttons .btn{
+	width: 45%;
 }
 
 .grupa-buttons button#next i{
@@ -38,8 +45,54 @@ table#calendar td:hover p{
 .grupa-header{
 	font-family: 'Source Sans Pro';
 	font-weight: 200;
-	font-size: 4em;
-	float: left;
+	font-size: 2.2em;
+}
+
+@media only screen and (max-width: 1160px){
+	.grupa-header{
+		font-size: 2em;
+	}
+
+	.grupa-select select{
+		font-size: 0.8em;
+	}
+}
+
+@media only screen and (max-width: 754px){
+	.grupa-header{
+		font-size: 1.6em;
+	}
+
+	.grupa-buttons .btn{
+		font-size: 12px;
+	}
+
+	.grupa-buttons, .grupa-select{
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 574px){
+	.grupa-header{
+		font-size: 2em;
+		text-align: center;
+	}
+
+	.grupa-buttons{
+		margin: 10px 0;
+	}
+
+	.grupa-select{
+		margin-bottom: 20px;
+	}
+
+	.grupa-buttons .btn{
+		font-size: 14px;
+	}
+
+	.grupa-select select{
+		font-size: 14px;
+	}
 }
 
 .grupa-days th{
@@ -57,13 +110,10 @@ table#calendar td:hover p{
 }
 
 .grupa-select{
-	float: right;
-	display: inline-block;
-	padding: 25px;
-}
-
-#month, #year{
-	width: 30%;
+	text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 td{
@@ -77,12 +127,16 @@ td{
 }
 
 .grupa-form input[type="submit"]{
-	padding: 7px 20px;
-	margin-left: 10px;
+	padding: 8.5px 20px;
+	margin: 30px 10px 10px 10px;
 }
 
-.grupa-popup h3{
-	margin-bottom: 20px;
+.grupa-form .btn#time, .grupa-form .btn#time-1{
+	background: none;
+}
+
+.grupa-form input[type="text"]{
+	max-width: 250px;
 }
 
 .popup-close{
@@ -95,6 +149,8 @@ td{
 .select-css {
 	border: 0;
 	color: #007BFF;
+	width: 45%;
+	display: inline;
 }
 
 .select-css::-ms-expand {
@@ -138,7 +194,7 @@ td{
 
 .mlc-footer{
 	position: fixed;
-	bottom: 20px;
+	bottom: 10px;
 	right: 20px;
 }
 
@@ -153,11 +209,13 @@ td{
 	background: white;
 	border-radius: 8px;
 	padding: 3%; 
+	max-width: 450px;
 }
 
 .grupa-popup h3{
 	font-size: 2em;
 	font-weight: 300;
+	margin-bottom: 30px;
 }
 
 .grupa-popup i{
@@ -169,7 +227,7 @@ td{
 }
 
 #grupa-form-delete{
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 /*Blur popup bg*/
@@ -184,7 +242,7 @@ td{
 .grupa-event{
 	background: #efefef;
 	color: black;
-	padding: 0 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
 	border-radius: 2px;
 	line-height: 16px;
 	cursor: pointer;
@@ -225,6 +283,17 @@ td{
 	display: inline;
 }
 
+.addeventatc{
+	position: relative;
+	top: 11px;
+}
+
+.btn-delete{
+	background: none !important;
+	border: none;
+	color: red !important;
+}
+
 
 
 /* Dark Mode */
@@ -234,10 +303,18 @@ td{
 	color: white;
 }
 
+.dark-mode .grupa-popup{
+	border: #007BFF 1px solid;
+	box-shadow: none;
+}
+
 .dark-mode .grupa-event{
 	background: #1E1E1E;
 }
 
+.dark-mode table, .dark-mode tr, .dark-mode td, .dark-mode .table-bordered thead td, .dark-mode .table-bordered thead th{
+	border: #1E1E1E solid 1px;
+}
 
 .dark-mode p, .dark-mode h3, .dark-mode label{
 	color: white;
@@ -260,31 +337,20 @@ td{
 	outline: none;
 }
 
-.dark-mode-button{
-	position: absolute;
-	bottom: 30px;
-	left: 30px;
-	padding: 5px;
-	background: white;
-	box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
-	color: black !important;
-	cursor: pointer;
-}
-
 .dark-mode .grupa-today{
-	background: #1E1E1E;
+	background: #007BFF;
 	color: white;
 }
 
-.addeventatc{
-	margin-top: 20px;
+.dark-mode .btn{
+	background: #007BFF;
+	color: white;
 }
 
-.btn-delete{
+.dark-mode .btn:hover{
 	background: none;
-	border: none;
-	color: red;
 }
+
 
 /* Modal */
 .popup-overlay {
@@ -297,4 +363,69 @@ td{
 
 .popup-content.active {
   visibility:visible;
+}
+
+
+
+/* Dark Mode Toggle */
+.toggle-control {
+  text-align: center;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.toggle-control input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.toggle-control input:checked ~ .control {
+  background-color: dodgerblue;
+}
+.toggle-control input:checked ~ .control:after {
+  left: 12px;
+}
+.toggle-control .control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 30px;
+  border-radius: 10px;
+  background-color: darkgray;
+  -webkit-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in;
+}
+.toggle-control .control:after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  background: white;
+  -webkit-transition: left 0.15s ease-in;
+  transition: left 0.15s ease-in;
+}
+
+
+.dark-mode-container{
+	position: fixed;
+	bottom: 27px;
+	left: 20px;
+	text-align: center;
+}
+
+.dark-mode-container p{
+	margin-bottom: 0;
 }

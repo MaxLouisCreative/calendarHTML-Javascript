@@ -31,32 +31,35 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="dark-mode">
 <div class="container col-sm-10 grupa-container">
-    <div class="card">
-        <div class="form-inline">
-            <div class="col-sm-12 grupa-buttons align-middle">
-                <h3 class="col-sm-3 grupa-header" id="monthAndYear"></h3>
-                <button class="btn btn-outline-primary col-sm-2 align-middle" id="previous" onclick="previous()"><i class="fas fa-arrow-left"></i>Previous</button>
-                <button class="btn btn-outline-primary col-sm-2 align-middle" id="next" onclick="next()">Next<i class="fas fa-arrow-right"></i></button>
-                <form class="col-sm-4 grupa-select" align="right">
-                    <select class="form-control col-sm-4 select-css" name="month" id="month" onchange="jump()">
-                        <option value=0>Jan</option>
-                        <option value=1>Feb</option>
-                        <option value=2>Mar</option>
-                        <option value=3>Apr</option>
-                        <option value=4>May</option>
-                        <option value=5>Jun</option>
-                        <option value=6>Jul</option>
-                        <option value=7>Aug</option>
-                        <option value=8>Sep</option>
-                        <option value=9>Oct</option>
-                        <option value=10>Nov</option>
-                        <option value=11>Dec</option>
-                    </select>
+    <div>
+        <div class="row grupa-header-row">
+            <div class="col-sm-3">
+                <h3 class="grupa-header" id="monthAndYear"></h3>
+            </div>
+            <div class="col-sm grupa-buttons">
+                <button class="btn btn-outline-primary" id="previous" onclick="previous()"><i class="fas fa-arrow-left"></i>Previous</button>
+                <button class="btn btn-outline-primary" id="next" onclick="next()">Next<i class="fas fa-arrow-right"></i></button>
+            </div>
+            <form class="col-sm grupa-select">
+                <select class="form-control select-css" name="month" id="month" onchange="jump()">
+                    <option value=0>Jan</option>
+                    <option value=1>Feb</option>
+                    <option value=2>Mar</option>
+                    <option value=3>Apr</option>
+                    <option value=4>May</option>
+                    <option value=5>Jun</option>
+                    <option value=6>Jul</option>
+                    <option value=7>Aug</option>
+                    <option value=8>Sep</option>
+                    <option value=9>Oct</option>
+                    <option value=10>Nov</option>
+                    <option value=11>Dec</option>
+                </select>
 
-                    <label for="year"></label>
-                    <select class="form-control col-sm-4 select-css" name="year" id="year" onchange="jump()">
+                <label for="year"></label>
+                <select class="form-control select-css" name="year" id="year" onchange="jump()">
                     <option value=1990>1990</option>
                     <option value=1991>1991</option>
                     <option value=1992>1992</option>
@@ -98,9 +101,8 @@
                     <option value=2028>2028</option>
                     <option value=2029>2029</option>
                     <option value=2030>2030</option>
-                    </select>
-                </form>
-            </div>
+                </select>
+            </form>
         </div>
         <table class="table table-bordered table-responsive-sm grupa-days" id="calendar">
             <thead>
@@ -127,16 +129,18 @@
 
     <!--Create Event-->
     <div id="addEvent" class="popup-overlay col-sm-12" align="center">
-        <div class="col-sm-3 grupa-popup">
+        <div class="col-sm-4 grupa-popup">
             <i class="fa fa-times popup-close"></i>
             <h3>Add Event</h3>
             <form action="" class="grupa-form" id="grupa-form">
               <input type="text" id="name" name="name" class="form-control" placeholder="Event Name" required><br>
+              <label>Select a time</label><br/>
               <input type="time" id="time" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
               <input type="hidden" name="selday" id="selDay" value="">
               <input type="hidden" name="selmonth" id="selMonth" value="">
               <input type="hidden" name="selyear" id="selYear" value="">
               <input type="hidden" name="evID" id="evID" value="">
+              <br/>
               <input type="submit" value="Create Event" class="btn btn-outline-primary">
             </form>
         </div>
@@ -144,26 +148,29 @@
 
     <!--Edit Event-->
     <div id="editEvent" class="popup-overlay col-sm-12" align="center">
-        <div class="col-sm-3 grupa-popup">
+        <div class="col-sm-4 grupa-popup">
             <i class="fa fa-times popup-close"></i>
             <h3>Edit Event</h3>
             <form action="" class="grupa-form" id="grupa-form-edit">
                 <input type="text" id="name-1" name="name" class="form-control" placeholder="Event Name" required><br>
+                <label>Select a time</label><br/>
                 <input type="time" id="time-1" name="time" min="09:00" max="18:00" required class="btn btn-outline-primary">
                 <input type="hidden" name="selday" id="selDay-1" value="">
                 <input type="hidden" name="selmonth" id="selMonth-1" value="">
                 <input type="hidden" name="selyear" id="selYear-1" value="">
                 <input type="hidden" name="evID" id="evID-1" value="">
+                <br/>
                 <input type="submit" value="Edit Event" class="btn btn-outline-primary">
+                <!-- Add reminder -->
+                <div title="Add to Calendar" class="addeventatc">
+                    Add to Calendar
+                    <span class="start"></span>
+                    <span class="timezone"></span>
+                    <span class="title"></span>
+                </div>
             </form>
 
-            <!-- Add reminder -->
-            <div title="Add to Calendar" class="addeventatc">
-                Add to Calendar
-                <span class="start"></span>
-                <span class="timezone"></span>
-                <span class="title"></span>
-            </div>
+            
 
             <form action="" class="grupa-form" id="grupa-form-delete">
                 <input type="hidden" name="evID" id="evID-2" value="">
@@ -172,7 +179,14 @@
         </div>
     </div>
 
-    <a class="dark-mode-button">Dark Mode</a>
+    <div class="dark-mode-container">
+    <p>Dark Mode</p>
+        <label class="toggle-control">
+            <input type="checkbox" checked="checked" class="dark-mode-button">
+            <span class="control"></span>
+        </label>
+    </div>
+    
 </div>
 
 <div class="col-sm-6 mlc-footer" align="right">
