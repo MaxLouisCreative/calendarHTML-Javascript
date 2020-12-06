@@ -15,5 +15,4 @@ function darkMode(){
 		$("body").removeClass("dark-mode");
 		$(".dark-mode-button").text("Dark Mode");
 	}
-	console.log("Yo")
 }

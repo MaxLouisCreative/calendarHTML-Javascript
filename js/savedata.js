@@ -1,7 +1,6 @@
 
 
-function Edate(title,time,day,month,year,key){
-    //this.id=id;
+function Edate(title,time,day,month,year,key) {
     this.title=title;
     this.time=time;
     this.day=day;
@@ -20,14 +19,13 @@ function Edate(title,time,day,month,year,key){
             }
         }
         return Idb++;
-        
     }
 }
 
 let jsonObj = LoadJSONLocal();
 function createJSON(formdata) {
     ndate=new Edate();
- 
+
     ndate.title = formdata[0].value;
     ndate.time = formdata[1].value;
     ndate.day = formdata[2].value;
@@ -40,14 +38,13 @@ function createJSON(formdata) {
     saveJSONLocal(jsonObj);
 }
 
-function ReadJSON(event) {
-    let position = SearchJSON(event);
+function ReadJSON(eventId) {
+    let position = SearchJSON(eventId);
     return jsonObj[position];
 }
 
-function deleteJSON(event) {
-    
-    let position = SearchJSON(event);
+function deleteJSON(eventId) {
+    let position = SearchJSON(eventId);
     if(position==null){
         return;
     }
@@ -56,19 +53,29 @@ function deleteJSON(event) {
     saveJSONLocal();
 }
 
-function replace(eventID, data) { 
-    deleteJSON(eventID);
+function replace(eventId, data) {
+    deleteJSON(eventId);
     createJSON(data);
     saveJSONLocal();
 }
 
-function SearchJSON(event) {
+function moveEventToDate(eventId, year, day) {
+    const srcEvent = ReadJSON(eventId);
+    deleteJSON(eventId);
+    saveJSONLocal();
+
+    jsonObj.push(ndate);
+    console.log(jsonObj);
+    saveJSONLocal(jsonObj);
+}
+
+function SearchJSON(eventId) {
    // console.log(jsonObj);
     if (jsonObj == []) {
         return null;
     }
     for (var i = 0; i < jsonObj.length; i++) {
-        if (jsonObj[i].id == event) {
+        if (jsonObj[i].id == eventId) {
             return results = i;
         }
     }
@@ -78,5 +85,7 @@ function saveJSONLocal(){
 }
 
 function LoadJSONLocal(){
-    return localStorage.getItem("calendar")==null? [] :JSON.parse(localStorage.getItem("calendar"));
+    return localStorage.getItem("calendar") === null
+        ? []
+        : JSON.parse(localStorage.getItem("calendar"));
 }

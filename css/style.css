@@ -78,7 +78,7 @@ td{
 
 .grupa-form input[type="submit"]{
 	padding: 7px 20px;
-	margin-left: 10px; 
+	margin-left: 10px;
 }
 
 .grupa-popup h3{
@@ -284,4 +284,17 @@ td{
 	background: none;
 	border: none;
 	color: red;
+}
+
+/* Modal */
+.popup-overlay {
+	visibility: hidden;
+}
+
+.popup-overlay.active{
+  visibility:visible;
+}
+
+.popup-content.active {
+  visibility:visible;
 }
