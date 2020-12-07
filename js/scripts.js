@@ -30,6 +30,7 @@ function jump() {
   currentYear = parseInt(selectYear.value);
   currentMonth = parseInt(selectMonth.value);
   showCalendar(currentMonth, currentYear);
+  renderCalendarCells();
 }
 
 function showCalendar(month, year) {
